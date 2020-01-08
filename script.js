@@ -26,7 +26,7 @@ function getConfs() {
 
   $.ajax({
 
-    url: "getAllConfs.php",
+    url: "todoToday.php",
     method: "GET",
     success: function(data) {
 
@@ -40,33 +40,11 @@ function getConfs() {
   });
 }
 
-function deleteConf() {
-
-  var me = $(this);
-  var id = me.data('id');
-
-  $.ajax({
-
-    url: "delConf.php",
-    method: "POST",
-    data: { id: id },
-    success: function(data) {
-
-      console.log("data", data);
-      // printConfs(data);
-    },
-    error: function(error) {
-
-      console.log("error", error);
-    }
-  })
-}
 
 function init() {
 
   getConfs();
 
-  $(this).on('click', '.delBTN', deleteConf);
 }
 
 $(window).ready(init);
