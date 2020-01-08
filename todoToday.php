@@ -53,7 +53,7 @@ if ($res->num_rows < 1) {
   echo json_encode(-2);
   return;
 }
-
+//chiusura connessione
 $conn->close();
 
 
