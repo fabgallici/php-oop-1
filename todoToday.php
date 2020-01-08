@@ -54,19 +54,26 @@ if ($res->num_rows < 1) {
   return;
 }
 
+$conn->close();
 
-$confs = [];
-while ($conf = $res->fetch_assoc()) {
 
-  $confs[] = new Configurazione(
-    $conf['id'],
-    $conf['title'],
-    $conf['description']
+$configs = [];
+while ($config = $res->fetch_assoc()) {
+  // print format array debug
+  // echo '<pre>';
+  // print_r($config);
+  // echo '</pre>';
+  
+  $configs[] = new Configurazione(
+    $config['id'],
+    $config['title'],
+    $config['description']
   );
 }
 
-echo json_encode($confs);
-// foreach ($conf as $confs) {
+echo json_encode($configs);
 
-//   echo $conf;
+// foreach ($configs as $config) {
+//   // echo $config . "\n";
+//   echo $config."<br>";
 // }
